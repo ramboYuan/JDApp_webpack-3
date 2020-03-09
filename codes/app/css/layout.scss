@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*
+* 变量 (variables)、嵌套 (nested rules)、导入 (inline imports)
+** 变量声明:使用 $ 符号来标识变量,即 $变量名
+** 变量引用：$变量名
+*/
+@mixin flex($direction:column,$inline:block) {
+	display: if($inline==block,flex,inline-flex);
+	flex-direction: $direction;
+	flex-wrap: wrap;
+}

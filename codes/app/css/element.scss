@@ -1,0 +1,46 @@
+@import "./layout.scss";
+
+/*
+* 混合器 (mixins)
+* 应用场景：整个网站中有几处小小的样式类似，那么使用变量来统一处理这种情况
+* 定义：混合器使用@mixin标识符定义
+** @mixin btn(参数) {}
+*** 参数 => $变量名1：默认值1,$变量名2：默认值2,$变量名3：默认值3 。。。
+* 使用：在你的样式表中通过@include来使用这个混合器，放在你希望的任何地方
+*/
+@mixin btn($size:14px,$color:#fff,$bgcolor:#F04752,$padding:5px,$radius:5px) {
+	padding: $padding;
+	background-color: $bgcolor;
+	border-radius: $radius;
+	border: 1px solid $bgcolor;
+	font-size: $size;
+	color: $color;
+	text-align: center;
+	line-height: 1;
+	display: inline-block;
+}
+
+@mixin list($direction:column) {
+	// 混合器使用
+	// 1.@import引入文件
+	// 2.@include 混合器名（参数）
+	@include flex($direction)
+}
+
+@mixin panel($bgcolor:#fff,$padding:0,$margin:20px 0,$height:88px,$txtPadding:0 32px,$color:#333,$fontSize:32px) {
+	background-color: $bgcolor;
+	padding: $padding;
+	margin: $margin;
+	// 元素内部元素样式写法
+	>h4{
+		height: $height;
+		line-height: $height;
+		padding: $txtPadding;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: center;
+		color: $color;
+		font-size: $fontSize;
+	}
+}
